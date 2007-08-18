@@ -34,7 +34,7 @@ DOC_DIR=%{buildroot}%{_docdir} \
 %{__cat} > %{buildroot}%{_datadir}/applications/mandriva-%{name}.desktop << EOF
 [Desktop Entry]
 Name=%{name}
-Comment=%{Summary}
+Comment=Extremely addictive realtime worms shoot-em-up
 Exec=%{name}
 Icon=%{name}
 Terminal=false
