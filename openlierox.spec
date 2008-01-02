@@ -6,6 +6,7 @@ URL:		http://openlierox.sourceforge.net/
 Group:		Games/Arcade
 License:	LGPL+
 Summary:	Extremely addictive realtime worms shoot-em-up
+BuildRoot:	%{_tmppath}/%{name}-%{version}
 BuildRequires:	libSDL-devel libSDL_mixer-devel libSDL_image-devel
 BuildRequires:	libhawknl-devel libgd-devel zlib-devel libxml2-devel
 %description
