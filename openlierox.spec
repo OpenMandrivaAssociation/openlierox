@@ -1,6 +1,6 @@
 Name:		openlierox
-Version:	0.57_beta3
-Release:	%mkrel 3
+Version:	0.57_beta8
+Release:	%mkrel 1
 Source:		OpenLieroX_%{version}.src.tar.bz2
 URL:		http://openlierox.sourceforge.net/
 Group:		Games/Arcade
@@ -30,6 +30,9 @@ DOC_DIR=%{buildroot}%{_docdir} \
 %{__chmod} -R o+rX %{buildroot}%{_datadir}/OpenLieroX
 %{__rm} -Rf %{buildroot}%{_docdir}
 
+%{__mkdir_p} %{buildroot}%{_iconsdir}
+cp -p %{buildroot}%{_datadir}/OpenLieroX/data/icon.png %{buildroot}%{_iconsdir}/%{name}.png
+
 %{__mkdir_p} %{buildroot}%{_datadir}/applications
 %{__cat} > %{buildroot}%{_datadir}/applications/mandriva-%{name}.desktop << EOF
 [Desktop Entry]
@@ -58,3 +61,4 @@ EOF
 %{_datadir}/OpenLieroX/
 %{_bindir}/%{name}
 %{_datadir}/applications/mandriva-%{name}.desktop
+%{_iconsdir}/%{name}.png
