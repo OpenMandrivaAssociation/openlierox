@@ -9,6 +9,7 @@ Summary:	Extremely addictive realtime worms shoot-em-up
 BuildRoot:	%{_tmppath}/%{name}-%{version}
 BuildRequires:	libSDL-devel libSDL_mixer-devel libSDL_image-devel
 BuildRequires:	libhawknl-devel libgd-devel zlib-devel libxml2-devel
+BuildRequires:	libzip-devel
 %description
 OpenLierox is an extremely addictive realtime worms shoot-em-up backed
 by an active gamers community. Dozens of levels and mods are available
