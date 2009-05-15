@@ -4,7 +4,7 @@ Release:	%mkrel 1
 Source:		OpenLieroX_%{version}.src.tar.bz2
 URL:		http://openlierox.sourceforge.net/
 Group:		Games/Arcade
-License:	LGPL+
+License:	LGPLv2
 Summary:	Extremely addictive realtime worms shoot-em-up
 BuildRoot:	%{_tmppath}/%{name}-%{version}
 BuildRequires:	libSDL-devel libSDL_mixer-devel libSDL_image-devel
