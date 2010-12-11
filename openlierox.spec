@@ -1,6 +1,6 @@
 Name:		openlierox
 Version:	0.57_beta8
-Release:	%mkrel 1
+Release:	%mkrel 2
 Source:		OpenLieroX_%{version}.src.tar.bz2
 URL:		http://openlierox.sourceforge.net/
 Group:		Games/Arcade
