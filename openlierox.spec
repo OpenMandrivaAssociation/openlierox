@@ -15,6 +15,7 @@ BuildRequires:	libgd-devel
 BuildRequires:	zlib-devel
 BuildRequires:	libxml2-devel
 BuildRequires:	libzip-devel
+BuildRequires:	curl-devel
 Requires:	%{name}-gamedata = %{version}-%{release}
 
 %description
