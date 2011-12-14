@@ -2,6 +2,8 @@ Name:		openlierox
 Version:	0.58_rc3
 Release:	%mkrel 1
 Source:		OpenLieroX_%{version}.src.tar.bz2
+Patch0:		openlierox-0.58_rc1-curl.patch
+Patch1:		openlierox-0.58_rc3-fstat.patch
 URL:		http://openlierox.sourceforge.net/
 Group:		Games/Arcade
 License:	LGPLv2
@@ -37,6 +39,8 @@ Game data for %{name}.
 
 %prep
 %setup -q -n OpenLieroX
+%patch0 -p1
+%patch1 -p1
 
 %build
 SYSTEM_DATA_DIR=%{_gamesdatadir} \
