@@ -1,23 +1,23 @@
+Summary:	Extremely addictive realtime worms shoot-em-up
 Name:		openlierox
 Version:	0.58_rc3
-Release:	%mkrel 1
+Release:	2
+Group:		Games/Arcade
+License:	LGPLv2
+URL:		http://openlierox.sourceforge.net/
 Source:		OpenLieroX_%{version}.src.tar.bz2
 Patch0:		openlierox-0.58_rc1-curl.patch
 Patch1:		openlierox-0.58_rc3-fstat.patch
-URL:		http://openlierox.sourceforge.net/
-Group:		Games/Arcade
-License:	LGPLv2
-Summary:	Extremely addictive realtime worms shoot-em-up
-BuildRoot:	%{_tmppath}/%{name}-%{version}
-BuildRequires:	SDL-devel
-BuildRequires:	SDL_mixer-devel
-BuildRequires:	SDL_image-devel
-BuildRequires:	libhawknl-devel
+Patch2:		openlierox-0.58_rc3-gcc4.7.patch
 BuildRequires:	libgd-devel
-BuildRequires:	zlib-devel
-BuildRequires:	libxml2-devel
-BuildRequires:	libzip-devel
-BuildRequires:	curl-devel
+BuildRequires:	libhawknl-devel
+BuildRequires:	pkgconfig(sdl)
+BuildRequires:	pkgconfig(SDL_image)
+BuildRequires:	pkgconfig(SDL_mixer)
+BuildRequires:	pkgconfig(libcurl)
+BuildRequires:	pkgconfig(libxml-2.0)
+BuildRequires:	pkgconfig(libzip)
+BuildRequires:	pkgconfig(zlib)
 Requires:	%{name}-gamedata = %{version}-%{release}
 
 %description
@@ -41,6 +41,7 @@ Game data for %{name}.
 %setup -q -n OpenLieroX
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 %build
 SYSTEM_DATA_DIR=%{_gamesdatadir} \
@@ -48,20 +49,20 @@ BIN_DIR=%{_gamesbindir} \
 ./compile.sh
 
 %install
-%__rm -rf %{buildroot}
-%__mkdir_p %{buildroot}%{_gamesbindir}
+mkdir -p %{buildroot}%{_gamesbindir}
 SYSTEM_DATA_DIR=%{buildroot}%{_gamesdatadir} \
 BIN_DIR=%{buildroot}%{_gamesbindir} \
 DOC_DIR=%{buildroot}%{_docdir} \
 	./install.sh
-%__chmod -R o+rX %{buildroot}%{_gamesdatadir}/OpenLieroX
-%__rm -rf %{buildroot}%{_docdir}
 
-%__mkdir_p %{buildroot}%{_iconsdir}
-%__cp -p %{buildroot}%{_gamesdatadir}/OpenLieroX/data/icon.png %{buildroot}%{_iconsdir}/%{name}.png
+chmod -R o+rX %{buildroot}%{_gamesdatadir}/OpenLieroX
+rm -rf %{buildroot}%{_docdir}
 
-%__mkdir_p %{buildroot}%{_datadir}/applications
-%__cat > %{buildroot}%{_datadir}/applications/mandriva-%{name}.desktop << EOF
+mkdir -p %{buildroot}%{_iconsdir}
+cp -p %{buildroot}%{_gamesdatadir}/OpenLieroX/data/icon.png %{buildroot}%{_iconsdir}/%{name}.png
+
+mkdir -p %{buildroot}%{_datadir}/applications
+cat > %{buildroot}%{_datadir}/applications/mandriva-%{name}.desktop << EOF
 [Desktop Entry]
 Name=OpenLieroX
 Comment=Extremely addictive realtime worms shoot-em-up
@@ -72,17 +73,12 @@ Type=Application
 Categories=Game;ArcadeGame;
 EOF
 
-%clean
-%__rm -rf %{buildroot}
-
 %files
-%defattr(-,root,root)
 %doc COPYING.LIB VERSION doc
 %{_gamesbindir}/%{name}
 %{_datadir}/applications/mandriva-%{name}.desktop
 %{_iconsdir}/%{name}.png
 
 %files gamedata
-%defattr(-,root,root)
 %{_gamesdatadir}/OpenLieroX
 

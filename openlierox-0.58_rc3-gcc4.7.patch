@@ -1,0 +1,12 @@
+diff -urN OpenLieroX/src/breakpad/external/src/google_breakpad/processor/minidump.h OpenLieroX-patched/src/breakpad/external/src/google_breakpad/processor/minidump.h
+--- OpenLieroX/src/breakpad/external/src/google_breakpad/processor/minidump.h	2010-01-26 06:56:11.000000000 +1000
++++ OpenLieroX-patched/src/breakpad/external/src/google_breakpad/processor/minidump.h	2012-11-13 03:16:31.801704201 +1100
+@@ -85,6 +85,8 @@
+ #define lseek _lseek
+ #endif
+ 
++#include <unistd.h>
++
+ #include <map>
+ #include <string>
+ #include <vector>
