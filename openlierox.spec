@@ -1,7 +1,7 @@
 Summary:	Extremely addictive realtime worms shoot-em-up
 Name:		openlierox
 Version:	0.58_rc3
-Release:	2
+Release:	3
 Group:		Games/Arcade
 License:	LGPLv2
 URL:		http://openlierox.sourceforge.net/
