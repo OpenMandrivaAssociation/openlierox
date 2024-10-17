@@ -4,7 +4,7 @@ Version:	0.58_rc3
 Release:	3
 Group:		Games/Arcade
 License:	LGPLv2
-URL:		http://openlierox.sourceforge.net/
+URL:		https://openlierox.sourceforge.net/
 Source:		OpenLieroX_%{version}.src.tar.bz2
 Patch0:		openlierox-0.58_rc1-curl.patch
 Patch1:		openlierox-0.58_rc3-fstat.patch
